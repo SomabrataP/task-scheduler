@@ -1,0 +1,25 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t smbrtprmnk/task-scheduler -f Dockerfile .
+
+# script:
+#   - docker run -e CI=true smbrtprmnk/task-scheduler npm run test -- --coverage
+
+language:
+  generic
+
+# deploy:
+#   provide: elasticbeanstalk
+#   region: "us-east-2"
+#   app: "task-scheduler"
+#   env: "Dockerreact-env"
+#   bucket_name: "elasticbeanstalk-us-east-2-364316006804"
+#   bucket_path: "task-scheduler"
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secure: "$AWS_SECRET_KEY"
